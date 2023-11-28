@@ -52,7 +52,7 @@ public class ProductDataServlet extends HttpServlet {
           out.println("<td width=15%>"+vo.getProduct_grade()+"</td>");
           out.println("<td width=15%>"+vo.getProduct_price()+"</td>");
           out.println("<td width=15%>"+vo.getProduct_sale()+"</td>");
-          out.println("<td width=20%>"+vo.getSaleprice()+"</td>");
+          out.println("<td width=20%>"+vo.getSale_price()+"</td>");
         
           out.println("</tr>");
        }

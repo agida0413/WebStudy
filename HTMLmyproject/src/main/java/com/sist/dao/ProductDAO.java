@@ -71,12 +71,10 @@ public class ProductDAO {
          //                     2page 21~40
          int start=(rowSize*page)-(rowSize-1);
          int end=rowSize*page;
-         String sql="SELECT p_image, product_name, product_rank, product_grade, product_price,NVL(product_sale,0),sale_price "
-                 + "FROM (SELECT p_image, product_name, product_rank, product_grade, product_price,product_sale,sale_price, rownum as num "
-                 + "FROM (SELECT /*+INDEX_ASC(hr.product_list PK_PRODUCT_LIST)*/p_image, product_name, product_rank, product_grade, product_price,product_sale,sale_price "
-                 + "FROM hr.product_list)) "
-                 + "WHERE num BETWEEN ? AND ? "
-                ;
+         String sql="SELECT p_image,product_name,product_rank,product_grade,product_price,product_sale,sale_price "
+        		 +"FROM product_inform "
+                 + "WHERE product_rank BETWEEN ? AND ? "
+        		 ;
          
          ps=conn.prepareStatement(sql);
          ps.setInt(1, start);
@@ -92,7 +90,7 @@ public class ProductDAO {
             vo.setProduct_grade(rs.getDouble(4));
             vo.setProduct_price(rs.getString(5));
             vo.setProduct_sale(rs.getString(6));
-            vo.setSaleprice(rs.getString(7));
+            vo.setSale_price(rs.getString(7));
             list.add(vo);
             
          }
@@ -132,7 +130,54 @@ public class ProductDAO {
       return total;
    }
    // => 상세보기 (table) 
+   
+   public List<ProductVO> searchProduct(String message){
+	   List<ProductVO>list= new ArrayList();
+	   try
+	      {
+	         getConnection();
+	         // 페이지마다 데이터 읽기
+	      
+	    
+	         String sql="select product_name ,product_rank "
+	        		 +"FROM product_inform "
+	        		 +"WHERE product_name LIKE "+"%"+message+"% "
+	        		 +"ORDER BY product_rank";
+	         
+	         ps=conn.prepareStatement(sql);
+	     
+	         // INDEX_ASC(테이블명 인덱스명, pk, uk) , INDEC_DESC(), INDEX()
+	         ResultSet rs=ps.executeQuery();
+	         while(rs.next())
+	         {
+	            ProductVO vo=new ProductVO();
+	           vo.setProduct_name(rs.getString(1));
+	           vo.setProduct_rank(rs.getInt(2));
+	            list.add(vo);
+	            
+	         }
+	      }
+	      catch(Exception ex)
+	      {
+	         ex.printStackTrace();
+	      }
+	      finally
+	      {
+	         disconnection();
+	      }
+	   
+	   
+	   
+	   
+	   
+	   return list;
+   }
+   
+
+	
+	
 }
+
 
 
 

@@ -1,0 +1,94 @@
+<!--
+	1.HTML5 지원하는 태그 : 레이아웃(공간분할)
+	=> div/span l
+		div:block속성=  > 세로분할 
+		span:inline속성 =>가로분할 
+		inline / block 
+	CSS = > 디자인 =>어떤태그?
+	=====================
+	=>태그 선택자 (selector) = > Jsoup
+		================
+		|1.크롤링 
+		|2.CSS
+		|3.JavaScript,JQuery , Vue, React 
+		
+		1)SELECTOR 
+			1. 전체 선택자 : *
+				=>글꼴
+			2. 태그 선택자 : h1,h2...
+			3. 태그의 구분자 : id, class 
+				id=중복이 없는 태그 
+				class= 중복이 가능하게 만든 태그 
+			=============================
+			css
+			= 외부css : .css 파일을 만들어서 사용
+					  공통으로 css를 적용하는 파일이 많은경우 
+					  table.css 
+					  <link rel="stylesheet" href="파일명">
+					  				=>폴더에 있는경우
+					  				=>원격도 가능 
+			= 내부css : 해당 파일에만 적용 
+				<style>
+					
+					</style>
+			
+			=인라인css : 태그 한개에 대한 처리 
+			 <img src=""style ="width:90px...">
+			 =>html의ㅣ 모든 태그는 style속성을 갖고 있다 .
+			
+			=내부css사용법 
+			<style>
+				태그명 {
+						  css속성: 값 
+						  =====
+							|
+						 이미 제작 
+					}
+				#id명{
+					css속성:값;
+					css속성:값;
+					css속성:값;
+					/*css속성:값;*/
+					
+				}
+				.class명{
+						
+				}	
+				</style>
+				$('태그명#btn ').click(function(){처리})
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		/* 내부 css*/
+		h1{
+			color: red;
+			background-color: green;
+		}
+		
+		#a{
+			color:blue;
+			background-color: yellow;
+		}
+		.b{
+			color: pink;
+			background-color: cyan;
+		}
+	</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--
+		기본 적용 : 아이디,클래스 =>css,javascript에 적용 
+		
+		
+	-->
+<h1 id="a">Hello CSS</h1>
+<h1 class="b">Hello CSS</h1>
+<h1 class="b">Hello CSS</h1>
+<h1>gell</h1>
+
+</body>
+</html>

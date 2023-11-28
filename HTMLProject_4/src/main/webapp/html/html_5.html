@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+	fieldset: 입력창을 그룹으로 모아서 처리 (연관이 있는 데이터를 묶어서)
+	legend:테두리에 그룹명을 넣어줌 
+	label 
+	=>가급적이면 table 을 사용하지 않는다 (권장)
+		=>CSS
+		  display : table , table-row table -cell
+		  			<table> <tr>         <td>
+				     table - column <th>	  
+	===========================================보이지 않는다 (css)
+	
+	=>분할 = > 레이아웃
+		가로분할 = > <span>
+		세로 분할 = > <div>
+	=> HTML5 에서 레이아웃 태그 (시멘텍)
+		========================
+		header: 검색창 , 로그 
+		==========================
+		
+		nav: 매뉴(주)
+		==========================
+		부가적인 정보(aside)        부가적인정보
+		=> 로그인 /부메뉴 		인기상품 /공지/뉴스		
+		|						  |
+		|						  |
+		|				          |
+		|                         |
+		|                         |
+		|	                      |
+		   실제화면 출력(section)
+		==========================	
+		footer:개인정보 방침 , 회사정보 , 사이트맵 
+		==========================	
+		시멘텍 = > 태그를 검색이 쉽게
+		====HTML은 추상적으로 만들어져 있다 
+			<object> : 동영상 =><video>,<audio>
+		| XML
+		학생 정보
+		<a></a> <name> </name>
+		<b> </b> <address></address>
+		<c> </c> <phone> </phone>
+				 		
+	-->
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<fieldset>
+		<legend>개인정보</legend>
+		<table>
+			<tr>
+				<td><label for="name">이름</label></td>
+				<td><input type="text" id="name" size="15"></td>
+			</tr>
+			<tr>
+				<td><label for="addr">주소</label></td>
+				<td><input type="text" id="addr" size="30"></td>
+			</tr>
+		</table>
+	</fieldset>
+
+</body>
+</html>

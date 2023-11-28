@@ -1,0 +1,252 @@
+<!--
+1.HTML 형식 
+ML = > 태그+속성 = XML (SPRING,MYBATIS ,JPA)
+				| 사용자 정의 ,HTML(라이브러리)
+				형식) <태그 속성 ="출력">
+					<태그> 화면 출력물</태그>
+				전체형식)
+				
+				<!DOCTYPE html> : 브라우저에 HTML의 버전확인
+				===================HTML5버전을 사용
+				<html>
+				<head> = > 설정 파일 등록
+				<title></title> : 브라우저 제목
+				<meta> : 화면 크기 ,한글 변환 ,검색 ,화면 이동....
+				<link>
+				============css 파일 읽기 
+				css
+				 = 외부 css = > 파일을 만들어서 읽기
+				 =============공통으로 사용되는 부분이 만ㅇㅎ은 경우
+				 =내부 css => 파일 한개에서 사용이 가능 
+				 ===============<style>
+				=인라인 css = > 태그 한개 변경 
+					=> 모든 태그에는 style 속성을 가지고 있다
+					=> 예) < img src="" style = "">
+				<style> :내부에서만 적용
+				<script> : 동적	
+						=> 라이브러리 (표준화)
+							Jquery(Ajax) , Vue , React 
+							TypeScript  
+
+</head>
+		<body> : 브라우저에 출력하는 위치
+			****HTML5는 태그를 소문자 사용
+			들여쓰기
+			1)텍스트 출력 (문자출력)
+			=제목출력(h1~h6) : 보통 사용(h1,h3)
+				=>block 속성 
+				=>bold 체 = 굵은
+				=강조체 => <b> : bold,<strong>
+				=첨자 =><sup> : 위첨자 = > 새글 
+				=글자변경 => <font>
+					**** 사이트는 모든 글꼴이 동일	
+					*** 사이트 (1차 프로젝트)
+						=> 오라클 사용 (SQL)/화면 UI
+						=> 웹 흐름
+				=>줄간격 : <br>=> \n, <p> => \n\n
+				=>구분선 : <hr>				
+			2)링커 : 화면이동 
+				=> 파일변경 ,내부이동 
+				<a href ="이동" target="_self" ," _blank"> 
+				**** 화면 이동: 서버 주소는 보통 생략 
+				a.html   = > http://localhost:8080/html/a.html
+							================================같은 서버에 있는 파일 	
+				
+			3)이미지 출력
+			=> <img src ="출력 파일명">
+						  =============== jpg,gif,png
+						  => URL 주소 , 실제 저장된 파일 
+						  				=========경로 설정  
+			=> width, heigth , title = > 속성
+			=>px단위 (축소 ,확대)
+			=>html 의 단점은 유동적이다			  				
+						 
+						    
+			4)목록출력
+				<ul> = > <li>= 메뉴
+					=>순서가없다
+				<ol> => <li> = > 온라인 문제
+				<dl> = > <dt>:라벨 , <dd> : 실제 데이터  
+				<table>	= > <tr> 
+							 | 
+						===============
+						|			|
+					   <th>        <td>
+							
+			5)입력창
+			=>95page
+			=>사용자가 입력해서 전송
+			=>로그인 /검색 / 글쓰기 ,수정 
+			댓글쓰기
+			====브라우저 (클라이언트)=> 서버로 전송 
+			1. input : 한줄입력이 가능
+			<input type="">
+					========
+			=한글 입력 :검색기 , id,이름...
+			***	<input type =text>
+			=비밀번호 
+			***<input type="password">
+			=버튼 종류 
+			= 데이터 전송버튼 
+				<input type=submit> 
+			= 일반 버튼(자바스크립트)= > 유효성 ㄱ ㅓㅁ사 
+					=> 아이디 중복체크 ,우편번호
+				<input type = button>
+				=radio 버튼 : 성별 , 전송여부 
+				<input type =radio>
+				=>한개선택 (그룹)
+				= checkbox: 조건 
+				=>다중선택 
+				<input type = checkbox>
+				**submit
+				<input type = image>
+				<button>
+					=날짜 (달력)
+				<input type=date> : IE제외 	
+				=숫자만 입력 : spinner
+				<input type =number> 
+				=슬라이더 :가격 
+				<input type = slider>
+				=파일처리 (선택) => 파일업로드
+				<input type = file>
+				=데이터를 숨긴다 
+				<input type = hidden>
+				
+									
+			2. textarea: 멀티라인 
+			= 속성 : rows(height), cols(width) 
+			3. select :ComboBox
+				============ 동반 (<option>)
+			======================데이터 전송이 가능 
+			1.전송할때 =>Spring-boot
+			  =====
+			  =>doGet    = >doPost
+			  =>      => 
+			  GET /POST 
+			  		| 보안 = > 데이터가 많은 경우 (숨겨서 내부적으로 전송)
+			  |단점:URL주소에 노출 (보안,데이터가 많은 경우 사용하지 않는다)
+			  ?=> 데이터 전송 (default)				 
+			  
+			  GET : 나머지는 <a>
+			  POST : = > form(POST/GET),Ajax,Vue,React
+			  			  요청 : GET/POST
+			  클라이언트 ==========서버 (처리후에 결과값)
+			  			응답		|JSP /SPRING /SPRING-BOOT	 
+			  	|HTML/CSS / JAVASCRIPT 		
+			  	 
+			4.
+			6) 화면 분할 = > div ,span
+			***7)***서버로 데이터 전송  = > form
+			8)기타 = > iframe , embed 
+					  fieldset , label 
+			
+
+</body>
+</html>
+						
+2.화면 출력 = > 태그 ,속성
+3.CSS
+4.동적 = > JAVASCRIPT
+============================
+데이터 : 오라클 연동 (응용 : 서블릿) = >INPUT (입력창)0
+		==============게시판 ( 일반 = > CRUD)	
+	
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>입력과 관련되는 태그</h1>
+<!--
+	한줄 입력 
+	형식) <input type= text>
+	속성)
+	1.size :크기 결정 = > css
+	2.name :서버로 데이터를 전송시에 구분자
+	===========================
+	<input type = text  name=id>
+	| request.getparameter("id")= null
+	============================= 
+	3.id:중복이 없는 구분자 ====>#
+	4.class : 중복이 있는 경우======>.
+	============================css구분자,자바스크립트에서 제어 
+	select (String cssQuery)
+	-->
+	<input type="text" name="id" id="id" class="id"
+	size="15" style="height: 30px " placeholder="아이디">
+	<!--
+		password 
+		
+		-->
+	<input type="password" name="id" id="id" class="id"
+	size="15" style="height: 30px" placeholder="비밀번호">
+	<p>
+	<input type="file" size="20">
+	<p>
+	<!--
+		date : 날짜 선택 = > 크롬 , FF
+		-->
+		<input type = "date" size="20">
+	<p>
+	<!-- 
+		spinner : 숫자 =  >number
+		=>id , name , class,size,max,min
+		
+		
+	-->
+	<input type="number" size="20" max="100" min="1">
+	<!-- JQUERY UI-->
+	<p>
+		<!--
+			slider : <input type = "range">
+			=>id , name, class , size , max , min 
+			
+			-->
+			
+			<input type="range" size="20" max="100" min="1">
+			
+	<p>
+		<input type="email" size="30">	
+		
+		<p>
+			<!--
+				버튼 종류 
+				submit= > input /select / textarea 에 입력한 값을 전송 
+				아이디 <input type="text" size="15">
+				속성 = > type ,value
+				
+				-->	
+				<input type ="submit" value = "전송">
+				<input type = "image" src ="start.jpg">
+				<button type="button">클릭</button> 
+			<!-- 
+				button 은 동작을 하지않는다 = > 자바스크립트 
+				==> 부가적 : 아이디 중복 , 우편번호 ... window.open ,dia-->
+				<input type = "button" value="취소">
+				<!-- 취소 : history.back():이전 페이지로 이동-->
+				<p>
+					<!--
+						radio 버튼 
+						=>한개만 선택이 가능 => 그룹을 설정 = > name
+						
+					-->
+					<input type="radio" value="남자" name ="sex" checked>남자
+					<input type="radio" value="여자" name="sex">여자
+					<!--
+						checkbox => 멀티(여러개 동시 에 선택 )
+						-->
+					<input type = "checkbox">등산	
+					<input type = "checkbox">게임
+					<input type = "checkbox">독서	
+					<input type = "checkbox">여행	
+					<input type = "checkbox">낚시	
+					
+				
+			
+					
+</body>
+</html>
