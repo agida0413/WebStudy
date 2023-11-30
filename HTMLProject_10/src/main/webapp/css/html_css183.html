@@ -1,0 +1,75 @@
+<!--
+   텍스트 관련 CSS
+   => font-size , font-family , font-weight
+   => color
+ ***1. text-decoraton: none, underline, overline
+      => 메뉴 overline , <a> underline:none 자주 사용
+    2. text-transform: none, uppercase, lowercase
+    3. text-shadow 
+ ***4. white-space
+ ***5. letter-spacing
+    6. word-spacing
+    7.text-align : 정렬 = > left/center/right
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		ul{
+			width: 80px;
+			
+			background-color: #fc6;
+			color: black;
+			display: inline;
+		}
+		li{
+			width: auto;
+			list-style: none;
+			display: inline-block;
+			text-transform: uppercase;
+			border: 3px orange solid;
+			/*
+			text-transform: uppercase;
+			사용처 : 로고 문자열 
+			*/
+			
+		}
+		a{
+			color: black;
+			text-decoration: none;
+			text-shadow: 5px 5px 3px #f00;
+		}
+		a:hover{
+			color: white;
+			text-decoration: overline;
+		}
+		table{
+			width: 600px;
+			border: 1px black solid;
+		}
+		pre{
+			white-space: pre-wrap;/*자동 줄바꿈*/
+			letter-spacing: 1.1em; /*자간*/
+		}
+	</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <ul>
+     <li><a href="#">Home</a></li>&nbsp;
+     <li><a href="#">Member</a></li>&nbsp;
+     <li><a href="#">FreeBoard</a></li>&nbsp;
+     <li><a href="#">Recommendation</a></li>&nbsp;
+     <li><a href="#">MyPage</a></li>
+  </ul>
+  <table>
+	  <tr>
+		  <td><pre>김기현 국민의힘 대표가 ‘당 대표로서 역할을 잘 수행하고 있다’고 보는 국민은 네 명 중 한명 꼴인 것으로 나타났다.
+			   11월 21일부터 23일까지 여론조사전문기관 한국갤럽 조사 결과에 따르면 ‘김기현 대표가 당 대표로서 역할을 잘 수행하고 있다고
+			    보느냐’는 물음에 ‘그렇다’는 응답은 26%에 머문 반면, ‘그렇지 않다’는 응답은 61%에 달하는 것으로 나타났다.
+</pre></td>
+	  </tr>
+  </table>
+</body>
+</html>
