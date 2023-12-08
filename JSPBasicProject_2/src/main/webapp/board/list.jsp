@@ -41,6 +41,8 @@ a:hover{
    text-decoration: underline;
 }
 </style>
+
+
 </head>
 <body>
    <center>
@@ -79,8 +81,61 @@ a:hover{
                <% 
                   }
                %>
-              <a href="detail.jsp?no=<%=vo.getNo()%>"> <%=vo.getSubject() %></a>&nbsp;
-               <%
+               <%--no에 해당되는 게시물 출력 요청 
+               데이터는 항상 앞에 있는 파일이 압ㄷ는다
+               no에 해당하는 게시물을 출력요청
+               => 사용자 요청
+               1)form :추가,수정,답변
+               			회원가입 , 회원 수정 ...=>post
+               2)화면 변경 = > <a> =>Get
+               데이터를 받느 파일명?키=값&키=값
+               					---구분자
+               	=>GET :URL주소에 노출 : id,pwd ...(session)	
+               	
+               =>클라이언트/서버
+               요청      처리후 응답 =>웹 프로그램 (네트워크:c/s)
+               == 요청에 관련된 데이터를 묶어서 한번에 전송
+               	  웹서버에서 묶어준다  		
+               	  request = > 클라이언트 관련 데이터 관리
+               	  				=================
+               	  				1)Cookie= >request.getCookie()
+               	  				2)Session=>request.getSession()
+               	  				
+               	  response =>HTML을 전송해서 브라우저 출력 
+               	  		    Cookie를 전송
+               	  		    원하는 페이지 이동 :reDirect				
+               	  		    
+               	  1.상세보기 :한개만 보여준다 = > primary key 
+               	  2.추가,수정 => 데이터베이스
+               	  3.예약=>예약과 관련된 테이블에 컬럼 
+               	  		 ==================		
+ 				동작방식
+ 				1. 사용자 요청
+ 					detail.jsp?no=<%=vo.getNo()%>&page=<%=curpage%>
+ 					링크=> 화면변경
+ 				2.요청된 데이터 받기
+ 					no/page
+ 				3.해당 데이터베이스 연결DAO
+ 				4.처리된 결과를 받아서 화면 출력		              	  		     			
+               
+               --%>
+              <%
+                String msg="관리자가 삭제한 게시물입니다";
+                 if(!msg.equals(vo.getSubject()))
+                 {
+             %>
+             <a href="detail.jsp?no=<%=vo.getNo()%>&page=<%=curpage%>"><%=vo.getSubject() %></a>&nbsp;
+             <%
+                 }
+                 else
+                 {
+             %>
+                <span style="color:#333"><%=vo.getSubject() %></span>
+             <%
+                 }
+             %>
+
+               <% 
        				SimpleDateFormat sdf=new SimpleDateFormat("YYYY-MM-dd");
                		String today=sdf.format(new Date());
                		if(today.equals(vo.getDbday())){
@@ -103,9 +158,9 @@ a:hover{
          
          <tr>
                <td colspan="5" class="text-center">
-               <a href="list.jsp?page=1">이전</a>&nbsp;
-               <%=curpage %>page/ <%=totalpage %> pages&nbsp;
-                <a href="list.jsp?page=2">다음</a>&nbsp;
+               <a href="list.jsp?page=<%=curpage>1?curpage-1:curpage%>">이전</a>&nbsp;
+               <%=curpage%>page/ <%=totalpage%> pages&nbsp;
+                <a href="list.jsp?page=<%=curpage<totalpage?curpage+1:curpage%>">다음</a>&nbsp;
                </td>
                </tr>
       </table>
