@@ -106,7 +106,7 @@ public class GoodsDAO {
    }
    
    //상세보기 
-   public GoodsVO goodsDetailData(int no,int type ) {
+   public GoodsVO goodsDetailData(int type,int no) {
 	   GoodsVO vo =new GoodsVO();
 	   try {
 		getConnection();
