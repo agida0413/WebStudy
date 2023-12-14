@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE member SYSTEM "member.dtd">
+<member>
+<list>
+<id>ag</id>
+<pwd>123</pwd>
+<name>ddd</name>
+<address>asda</address>
+<phone>asdad</phone>
+</list>
+
+</member>

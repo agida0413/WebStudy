@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	1. 태그 정의<!ELEMENT>
+	<!ELEMENT html (head?,body?)>
+	<!ELEMENT head(title,meta*,script,style*,link*)>
+	? = > 사용가능/미사용
+	* = > 0번 이상 
+	|=>선택 (th|td)*
+	+ =>한번이상 
+	default 반드시 사용 
+	2. 속성 정의 <!ATTLIST>
+	id=>primary key 
+	idref=foreign key 
+	
+	3. 변수정의<!ENTITY>
+		<!ENTITY nbsp ' '> = > &nbsap;
+		<!ENTITY lt '<'> = > &lt;
+		
+ -->
+ 
+ <!ELEMENT member (list+)>
+ <!ELEMENT list (id,pwd,name,address,(phone|tel),content?)>
+ <!ELEMENT id (#PCDATA)>
+  <!ELEMENT pwd (#PCDATA)>
+  <!ELEMENT name (#PCDATA)>
+   <!ELEMENT address (#PCDATA)>
+    <!ELEMENT phone (#PCDATA)>
+     <!ELEMENT tel (#PCDATA)>
+      <!ELEMENT content (#PCDATA)>
+      
