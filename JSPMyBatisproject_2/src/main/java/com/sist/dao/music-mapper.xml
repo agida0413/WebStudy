@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.dao.music-mapper">
+	<select id="musicFindData" resultType="MusicVO" parameterType="hashmap">
+		SELECT no,title,singer,poster,state,album,idcrement
+		FROM genie_music
+		WHERE 
+		<trim prefixOverrides="OR"> <!-- suffixOverride 맨마지막 OR/AND OR 나 AND -->
+			<foreach collection="fsArr" item="fs">
+				<trim prefix="OR">
+					<choose>
+						<!-- 인식 ''=>비교시에 정수로 변환 toString()-->
+						<when test="fs=='T'.toString()">
+							title LIKE '%'||#{ss}||'%'
+						</when>
+						
+						<when test="fs=='S'.toString()">
+							singer LIKE '%'||#{ss}||'%'
+						</when>
+						
+						<when test="fs=='A'.toString()">
+						    album LIKE '%'||#{ss}||'%'
+						</when>
+					</choose>
+				</trim>
+		  </foreach>
+		</trim>
+	</select>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- getConnection / disConnection 
+    #{name}   ${vo.name} vo.getName()
+    = vo.getName()
+-->
+<configuration>
+  <properties resource="db.properties"/>
+  <typeAliases>
+    <typeAlias type="com.sist.dao.EmpVO" alias="EmpVO"/>
+    <typeAlias type="com.sist.dao.DeptVO" alias="DeptVO"/>
+  </typeAliases> <!-- VO 등록 -->
+  <environments default="development"> <!-- 데이터베이스 정보 -->
+    <environment id="development">
+     <transactionManager type="JDBC"/> 
+      <!-- Commit,Rollback 
+          1. JDBC => AutoCommit
+          2. MANAGE => 상황에 따라 관리자 처리
+      -->
+      <!-- dataSource:데이터베이스 정보 -->
+     <dataSource type="POOLED">
+       <!-- DI 
+            PooledDataSource pool=new PooledDataSource()
+            pool.setDriver("oracle...")
+            => SqlSessionFactory
+               => getConnection/disConnection 생성
+       -->
+       <property name="driver" value="${driver}"/>
+       <property name="url" value="${url}"/>
+       <property name="username" value="${username}"/>
+       <property name="password" value="${password}"/>
+     </dataSource>
+    </environment>
+  </environments>
+  <mappers> <!-- SQL문장의 위치 = include -->
+    <mapper resource="com/sist/dao/emp-mapper.xml"/>
+  </mappers>
+</configuration>
